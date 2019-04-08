@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title></title>
+    <meta name="keywords" content="登录">
+    <meta name="description" content="登录login">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/css/css/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+   <!--  <link href="css/css/css/css/font-awesome.min.css?v=4.4.0" rel="stylesheet"> -->
+   <link href="css/css/css/css/animate.min.css" rel="stylesheet">
+ <link href="bootstrapValidator/bootstrapValidator.css" rel="stylesheet">
+      <link href="css/css/css/css/style.min.css" rel="stylesheet">
+     <link href="css/css/css/css/login.min.css" rel="stylesheet">
+  <!--登录背景自动切换 CSS -->        
+        <link rel="stylesheet" href="css/css/css/css/supersized.css">
+    <!--<script src="js/jquery-3.1.1.min.js"></script>-->
+
+    <!--[if lt IE 8]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <!--<script>
+        if(window.top!==window.self){window.top.location=window.location};
+    </script>-->
+       <!--<script src="js/me/jquery.min.js"></script>-->
+        
+    
+
+	       <script src="js/js/js/js/jquery-1.8.2.min.js" ></script>
+      <script src="js/js/js/js/supersized.3.2.7.min.js" ></script>
+        <script src="js/js/js/js/supersized-init.js" ></script>
+        <script src="bootstrapValidator/bootstrapValidator.js"></script>
+        <script src="js/js/bootstrap.js"></script>
+        <script src="js/me/bootbox.min.js"></script>
+        <!--  <script src="js/jquery-3.1.1.min.js"></script>-->
+        <script src="js/me/jquery.cookie.js"></script>
+        
+    <script src="js/me/login.js"></script>
+        
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+    
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="signin-info">
+                    <div class="logopanel m-b">
+                        <h1>Day Day Tourist</h1>
+                    </div>
+                    <div class="m-b"></div>
+                    <h4>欢迎来到 <strong>天天旅游登录界面</strong></h4>
+                    <ul class="m-b">
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>客户至上</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>锐意进取</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>信誉第一</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>旅游地点众多</li>
+                        <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i>服务周到</li>
+                    </ul>
+                    <strong>还没有账号？111 <a href="regist.html">立即注册&raquo;</a></strong>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <form  id="form1"  class="form-horizontal">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">欢迎来到天天旅游中心登录系统</p>
+                    <div class="form-group">
+                    <input type="text" id="txt1" name="username" class="form-control uname" placeholder="用户名" onclick="javascript:this.value=''" aria-describedby="account"/>
+                     <!--  <i class="fa fa-user fa-fw"></i>-->
+                      <!-- <span class="input-group-addon">
+                             <span class="glyphicon glyphicon-user"></span>
+                        </span>-->
+                     </div>
+                     <div class="form-group">
+                    <input type="password" id="txt2" name="password" class="form-control pword m-b" placeholder="密码" onclick="javascript:this.value=''" aria-describedby="pwd"/>
+                    <!--<span class="input-group-addon">
+                             <span class="glyphicon glyphicon-lock"></span>
+                        </span>-->
+                    </div>
+                    <!--  <a href=""><b>忘记密码了？</b></a> -->
+                     <div class="form-group">
+                     <select class="form-control role" placeholder="角色" id="user_type" name="usertype">
+                      <option  value="1">用户</option>
+                       <option value="2">管理员</option>
+                    </select>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block"   value="登录" >登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2019 All Rights Reserved.
+            </div>
+        </div>
+    </div>
+		<!--登录背景自动切换 js -->
+
+  
+   
+</body>
+
+</html>

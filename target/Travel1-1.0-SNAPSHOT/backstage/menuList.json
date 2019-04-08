@@ -1,0 +1,29 @@
+[
+	{
+		"text": "<span class='glyphicon glyphicon-th-list' /> 基础信息管理",
+		"backColor": "#428bca",
+		"color": "#ffffff",
+		"selectable": false,
+		"nodes": [
+            {
+				"text": "<span class='glyphicon glyphicon-list-alt' /> 商品信息管理",
+				"href":"baseInfo/catalog.html"
+			}
+		]
+	},
+	{
+		"text": "<span class='glyphicon glyphicon-inbox' /> 信息管理",
+		"backColor": "#428bca",
+		"color": "#ffffff",
+		"selectable": false,
+		"nodes": [
+		   {
+				"text": "<span class='glyphicon glyphicon-user' /> 用户管理",
+				"href":"baseInfo/User.html"
+			},{
+				"text": "<span class='glyphicon glyphicon-user' /> 统计管理",
+				"href":"baseInfo/sysDict.html"
+			}
+		]
+	}
+]

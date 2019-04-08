@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lx.dao.PlaceDao">
+
+    <select id="getPlacePage" resultType="Place">
+        select b.* from ( select a.*, rownum as num
+        from(
+        select p.* from place p
+
+        ) a
+        where rownum &lt;= #{page}*#{size}
+        <if test="null!=nameKey">
+            <bind name="nameLike" value="'%'+nameKey+'%'"/>
+            and a.city like #{nameLike}
+        </if>
+
+
+        ) b
+        where num > (#{page}-1)*#{size}
+    </select>
+
+
+    <select id="getPlaceCount" resultType="Integer">
+        select count(*) from place
+        <where>
+
+            <if test="null!=nameKey">
+                <bind name="nameLike" value="'%'+nameKey+'%'"></bind>
+                and city like #{nameLike}
+            </if>
+
+        </where>
+    </select>
+
+
+
+</mapper>

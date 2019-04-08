@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>公司职员管理</title>
+    <link rel="stylesheet" href="../../js/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../js/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <script src="../../js/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../js/bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="../../js/bootstrap-table/dist/locale/bootstrap-table-zh-CN.js"></script>
+    <link rel="stylesheet" href="../../js/bootstrap-table/dist/bootstrap-table.min.css">
+    <script>
+        var dep=[];
+        //var a={"depname":"研发部","depid":1};
+        dep.push({"depname":"研发部","depid":1});
+        dep.push({"depname":"销售部","depid":2});
+        dep.push({"depname":"售后部","depid":3});
+        dep.push({"depname":"人资部","depid":4});
+        dep.push({"depname":"财务部","depid":5});
+        function aa(){
+           // $("#selDept").css('width','20px');
+            $("#selDept").empty();
+            var op=new Option("全部","-1");
+
+            $("#selDept").append(op);
+
+            $.each(dep,function (index,item) {
+                op=new Option();
+                op.text=item.depname;
+                op.value=item.depid;
+
+                $("#selDept").append(op);
+            });
+
+
+            $("#selDept").selectpicker("refresh");
+            $("#selDept").selectpicker("render");
+        }
+        $(function () {
+             aa();
+            $("#tableId").bootstrapTable({
+                url: "../../json/employee.json",//http://10.96.112.250:9000/findUserBooks
+                method: "post",//post请求方式
+                pagination: true,//分页
+                sidePagination: "client", //从服务器端分页server
+                queryParams: function (param) {
+                    return {
+                        "pageSize": param.limit,//分页行数  param.limit 10
+                        "pageIndex": (param.offset / param.limit),//分页页数  (param.offset/param.limit) 0
+                        //"buid": "1"
+                    };
+                },
+                contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+                columns: [
+
+                    // {checkbox: true},
+                    {field: "empno", title: "<span class='glyphicon glyphicon-tag'/>员工编号", halign: "center"},
+                    {field: "empname", title: "姓名", halign: "center"},
+                    {field: "dep", title: "所在部门", halign: "center"},
+                    {field: "leader", title: "上级", halign: "center"}
+
+                ]
+            });
+        });
+    </script>
+
+
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 20px">
+        <span style="margin-left: 20px;">姓名：</span>
+        <input type="text"  style="width: 200px;height: 30px">
+        <span style="margin-left: 10px">所在部门：</span>
+    <select id="selDept" >
+        <option value="-1">全部</option>
+    </select>
+        <button class="btn btn-primary" >
+             <span class="glyphicon glyphicon-search">
+               检索Search
+             </span>
+        </button>
+    </div>
+    <div class="row" style="margin-top: 10px">
+        <div class="col-md-12">
+            <table id="tableId"></table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

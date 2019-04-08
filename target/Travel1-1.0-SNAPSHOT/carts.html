@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/modal1.css">
+    <script src="js/me/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-table/dist/bootstrap-table.min.css">
+    <script src="bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/me/jquery.cookie.js"></script>
+     <!-- <script src="js/me/productt.js"></script> -->
+
+     <script src="js/me/calc.js"></script>
+   <script src="js/me/stamp1.js"></script>
+    <script src="js/me/user.js"></script>
+    <script src="js/me/bootbox.min.js"></script>
+    <script src="js/me/jquery.base64.js"></script>
+    <script src="js/me/tableExport.min.js"></script>
+    <script src="js/me/jquery.jqprint-0.3.js"></script>
+    <script src="js/me/jquery_print_fz.js"></script>
+    <script src="js/me/carts.js"></script>
+
+    <script>
+
+        function realClock(){
+            var now=new Date();
+            var year=now.getFullYear();
+            var month=now.getMonth();
+            var date=now.getDate();
+            var day=now.getDay();
+            var hour=now.getHours();
+            var minute=now.getMinutes();
+            var second=now.getSeconds();
+            month=month+1;
+            var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+            var week=arr_week[day];
+//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+            var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+                + (date < 10 ? "0" + date : date) + "  "+week+"  "+ (hour < 10 ? "0" + hour: hour)
+                + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+            clock.innerHTML="当前时间："+timeCur;
+        }
+        window.onload=function(){
+            setInterval("realClock()",1000);
+        }
+    </script>
+
+
+
+</head>
+<body>
+<header style="">
+    <nav class="navbar navbar-inverse" style="height:52px;line-height: 52px;border-radius: unset">
+        <div class="container-fluid">
+
+            <div id="clock" style="margin-left: 80px;color:#99998E;float: left"></div>
+
+            <div style="float: right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">语言 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">中文</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">英文</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbg1"><label id="localname"></label></li>
+                    <li class="navbg1"><a href="login.html" >登录</a></li>
+                    <li class="navbg1"><a href="regist.html" >注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<header style="z-index: 99">
+    <nav class="navbar navbar-default" style="top: -20px;border-radius: unset;width: 100%">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <img src="images/logoT.png"  style="margin-top: 5px;margin-left: 100px;height: 80px;width: 80px"/>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;padding-right:150px;margin-top: 20px">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop.html">旅游商店</a></li>
+                    <li><a href="shop-list.html">旅游指南</a></li>
+                    <li><a href="carts.html">我的订单</a></li>
+                    <li><a href="tour.html">旅游攻略</a></li>
+
+                    <li><a href="about-us.html">关于我们</a></li>
+                    <li><a href="contact-us.html">联系我们</a></li>
+                    <!--<li><a href="#" class="lik"></a></li>-->
+                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"><span class="badge"><label id="num"></label></span></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container-fluid" style="position:relative;top:-30px;text-align: center">
+    <img src="images/background/photo1.PNG" width="100%" />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li class="active"><a href="shop.html">购物车</a></li>
+            </ol>
+        </div>
+    </div>
+    <div class="row" style="margin-left: 30px;">
+    <div style="float:left">
+        <button class="btn btn-primary" id="btn_export" onclick="exportTable()">
+            <span class="glyphicon glyphicon-export"></span> 导出到Excel
+        </button>
+        <button class="btn btn-info" id="btn_print">
+            <span class="glyphicon glyphicon-print"></span> 打印信息
+        </button>
+        <button class="btn btn-danger" id="btn_delete">
+            <span class="glyphicon glyphicon-print"></span> 批量删除
+        </button>
+        </div>
+            <form id="formSearch" class="form-horizontal" style="float:right;margin-top:-20px;margin-right:50px">
+					<div class="form-group" style="margin-top:15px">
+					<div class="row">
+						<label class="control-label col-md-3" for="search_name" >商品名</label>
+						<div class="col-md-6" >
+							<input type="text" class="form-control" id="search_name" >
+						</div>
+						
+						<div class="col-md-3" >
+							<button type="button"  id="btn_query" class="btn btn-primary">查询</button>
+						</div>
+						</div>
+					</div>
+				</form>
+    </div>
+</div>
+
+<div class="container" id="container">
+  <div class="row col-md-12">
+      <table id="productTable"></table><br>
+      <div style="margin-left: 800px;margin-bottom: 20px" >
+      <span style="font-size: 20px">总价:￥</span><label id="totalprice" style="margin-right: 40px"></label>
+      <button class="btn btn-success" id="zhifu">
+          <span class="glyphicon glyphicon-print" ></span> 支付
+      </button>
+      </div>
+  </div>
+</div>
+<footer>
+    <div class="container-fluid" style="background: #444444;width: 100%">
+        <div class="row col-md-12" >
+            <div class="col-md-5">
+                <div class="fasd">
+                    <img src="images/logoT.jpg" height="91" width="92"/>
+                </div>
+                <div class="fasd1">
+                    <p>天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国旅游最富活力的成长性新锐航空企业。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul  >
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3 class="tt">订阅</h3>
+                <ul  class="tt1">
+                    <li class="tt1"><a href="#">请输入您的电子邮箱</a></li>
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="" aria-describedby="">
+                        <span class="input-group-addon" style="background: #7ECA8F">
+                            <span class="glyphicon glyphicon-send"></span>
+                        </span>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!--  <div class="modal fade" id="mymodal">
+    <div class="modal-dialog" style="background: white">
+        <div class="modal-header " style="background: #3174AF">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span style="color: white">提示</span>
+            <button class="close" data-dismiss="modal">
+                <span aria-hidden="true">x</span>
+            </button>
+        </div>
+        <form action="#" method="get">
+            <div class="modal-body">
+               <p>是要删除这一项吗</p>
+            </div>
+            <div class="modal-footer">
+
+                <button class="btn btn-success" data-dismiss="modal" id="del">是</button>
+                <button class="btn btn-primary" data-dismiss="modal">否</button>
+
+            </div>
+        </form>
+    </div>
+</div>
+-->
+<!--处理-->
+	<div class="modal fade" id="editWindow" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">&times;</button>
+						<h4 class="modal-title">编辑商品</h4>
+					</div>
+					<form class="form-horizontal" id="editForm" style="margin: 30px;">
+						
+						<div class="form-group">
+							<input type="hidden" id="editId" name="editId" /> 
+							<label for="edit_pname" class="col-md-offset-2 col-md-2 control-label">name</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="pname"
+									id="edit_pname" placeholder="pname" readonly="readonly">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="edit_price"
+								class="col-md-offset-2 col-md-2 control-label">单价</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="price"
+									id="edit_price" placeholder="price" readonly="readonly">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="edit_num"
+								class="col-md-offset-2 col-md-2 control-label">数量</label>
+							<div class="col-md-6">
+								<!-- <input type="text" class="form-control" name="number"
+									id="edit_number" placeholder="number" > -->
+							<div class="input-group">
+                            <span class="input-group-btn">
+                              <button class="btn btn btn-default" type="button" id="min1" value="-">-</button>
+                            </span>
+                    <input type="text" class="form-control"   name="text_box1" id="text_box1" readonly>
+                    <span class="input-group-btn">
+                              <button class="btn btn-default" type="button" id="add1" value="+">+</button>
+                            </span>
+
+                </div>
+                <div><label id="stat1" ></label></div>
+							</div>
+						</div>
+						<div class="form-group modal-footer">
+							<div class="col-md-offset-4 col-md-6">
+								<span id="returnMessage" class="glyphicon"></span>
+								<button type="button" id="editSubmitBtn" class="btn btn-info">Update</button>
+								<button type="reset" id="editResetBtn" class="btn btn-default">Reset</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+<div class="modal fade" id="mymodal2">
+    <div class="modal-dialog" style="background: white">
+        <div class="modal-header " style="background: #3174AF">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span style="color: white">支付</span>
+            <button class="close" data-dismiss="modal">
+                <span aria-hidden="true">x</span>
+            </button>
+        </div>
+
+        <div class="modal-body" style="text-align: center">
+
+            <img src="images/img/erweima.jpg" height="200" width="200"/></div>
+        <div class="modal-footer">
+
+            <button class="btn btn-success" data-dismiss="modal" >ok</button>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

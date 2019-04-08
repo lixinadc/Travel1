@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>旅游指南</title>
+ 
+
+    <!-- Custom CSS -->
+    <link href="css/css/css/css/css/css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/ionicons.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+<link rel='stylesheet' href='css/prettyPhoto.css' type='text/css' media='all'>
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/custom.css" type="text/css" media="all">
+<link href="http://fonts.googleapis.com/css?family=Great+Vibes%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+<script language="javascript">
+        function realClock(){
+          var now=new Date();
+          var year=now.getFullYear();
+          var month=now.getMonth();
+          var date=now.getDate();
+          var day=now.getDay();
+          var hour=now.getHours();
+          var minute=now.getMinutes();
+          var second=now.getSeconds();
+          month=month+1; 
+          var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+          var week=arr_week[day];
+//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+          var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+        + (date < 10 ? "0" + date : date) + "  "+week+"  "+ (hour < 10 ? "0" + hour: hour)
+        + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+          clock.innerHTML="当前时间："+timeCur;
+        }
+          window.onload=function(){
+               setInterval("realClock()",1000);
+          }
+    </script>
+	</head>
+	<body>
+		<div class="noo-spinner">
+	<div class="spinner">
+		<div class="cube1"></div>
+		<div class="cube2"></div>
+	</div>
+</div>
+
+<div class="site">
+	<div class="topbar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="topbar-text">
+						<div id="clock"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="topbar-menu">
+						<ul class="topbar-menu">
+							<li class="dropdown">
+								<a href="#">语言</a>
+								<ul class="sub-menu">
+									<li><a href="#">中文</a></li>
+									<li><a href="#">英语</a></li>
+								</ul>
+							</li>
+							<li class="navbg1"><label id="localname"></label></li>
+							<li><a href="login.html">登陆</a></li>
+							<li><a href="regist.html">注册</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header id="header" class="header header-desktop header-2">
+		<div class="top-search">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<form>
+							<input type="search" class="top-search-input" name="s" placeholder="你想要找什么？" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<a href="#" id="logo">
+						<img class="logo-image" src="images/logoT.png" alt="Organik Logo" />
+					</a>
+				</div>
+				<div class="col-md-9">
+					<div class="header-right">
+						<nav class="menu">
+							<ul class="main-menu">
+								<li><a href="index.html">首页</a></li>
+								<li><a href="shop1.html">旅游商店</a></li>
+								<li><a href="shop-list.html">旅游指南</a></li>
+								<li><a href="#"><span id="acar">我的订单</span></a></li>
+								<li><a href="tour.html">旅游攻略</a></li>
+
+								<li><a href="about-us.html">关于我们</a></li>
+								<li><a href="#"><span id="person">个人中心</span></a></li>
+							</ul>
+						</nav>
+						<div class="btn-wrap">
+							<div class="mini-cart-wrap">
+								<div class="mini-cart">
+									<div class="mini-cart-icon">
+										<i class="ion-bag"></i><label id="num" style="position: absolute;z-index:99;color:white;font-size: 5px;margin-top: 5px"></label>
+									</div>
+								</div>
+
+
+							</div>
+							<div class="top-search-btn-wrap">
+								<div class="top-search-btn">
+									<a href="javascript:void(0);">
+										<i class="ion-search"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+<div class="section section-bg-10 pt-11 pb-17">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2 class="page-title text-center">旅游指南</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section border-bottom pt-2 pb-2">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<ul class="breadcrumbs">
+							<li><a href="#"><b>首页</b></a></li>
+							<li><b>旅游指南</b></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+    <div class="brand">旅游指南</div>
+    <div class="address-bar">您的旅行说明书</div>
+    <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">当季热门城市
+                        <strong>厦门</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img class="img-responsive img-border img-full" src="images/img/slide-1.jpg" alt="">
+                    <h2>厦门4日自由行
+                        <br>
+                        <small>劲爆价减800、希尔顿/马哥3晚连住、专车接送</small>
+                    </h2>
+                    <p>【暑期减500金秋减800】希尔顿/马哥劲爆价/赠丰盛自助早餐&希尔顿折扣早餐卷！<br>【马哥孛罗】市区五星距咖啡街、中山路、厦大南普陀、环岛路、鼓浪屿都方便。<br>【深度玩乐小团随心选】他们比本地人更了解厦门，带你体验即将消失的老厦门。</p>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img class="img-responsive img-border img-full" src="images/img/slide-2.jpg" alt="">
+                    <h2>产品特色
+                    </h2>
+                    <p>精选酒店二选一·无边海景<br>庆鼓浪屿申遗成功<br>丰富的当地玩乐产品选择·一键预定</p>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+    </div>
+	
+		<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<img src="images/logoT.png" class="footer-logo" alt="" />
+					<p>
+						天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国民航最富活力的成长性新锐旅游企业。
+					</p>
+					<div class="footer-social">
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="widget">
+						<h3 class="widget-title">天天旅游</h3>
+						<ul>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="widget">
+						<h3 class="widget-title">天天旅游</h3>
+						<ul>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="widget">
+						<h3 class="widget-title">订阅</h3>
+						<p>
+							输入您的邮箱地址
+						</p>
+						<form class="newsletter">
+							<input type="email" name="EMAIL" placeholder="Your email address" required="" />
+							<button><i class="fa fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					Copyright &copy; 2019.天软学院<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+				</div>
+				<div class="col-md-4">
+					<img src="images/footer_payment.png" alt="" />
+				</div>
+
+			</div>
+		</div>
+		<div class="backtotop" id="backtotop"></div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr-2.7.1.min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+<script type='text/javascript' src='js/jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='js/jquery.prettyPhoto.init.min.js'></script>
+<script type="text/javascript" src="js/script.js"></script>
+		<script src="js/me/carts.js"></script>
+		<script src="js/me/bootbox.min.js"></script>
+		<script src="js/me/user.js"></script>
+
+		<script src="js/me/touch.js"></script>
+	</body>
+</html>

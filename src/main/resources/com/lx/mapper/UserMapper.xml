@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lx.dao.UserDao">
+
+    <select id="getSelectUser" resultType="User">
+        select b.* from ( select a.*, rownum as num
+        from(
+        select u.* from tb_user1 u
+
+        ) a
+        where rownum &lt;= #{page}*#{size}
+        <if test="null!=nameKey">
+            <bind name="nameLike" value="'%'+nameKey+'%'"/>
+            and a.username like #{nameLike}
+        </if>
+        <if test="null!=usertype">
+            and a.usertype=#{usertype}
+        </if>
+
+        ) b
+        where num > (#{page}-1)*#{size}
+    </select>
+
+
+    <select id="getUserCount" resultType="Integer">
+        select count(*) from tb_user1
+        <where>
+
+            <if test="null!=nameKey">
+                <bind name="nameLike" value="'%'+nameKey+'%'"></bind>
+                and username like #{nameLike}
+            </if>
+            <if test="null!=usertype">
+                and usertype=#{usertype}
+            </if>
+        </where>
+    </select>
+
+
+
+</mapper>

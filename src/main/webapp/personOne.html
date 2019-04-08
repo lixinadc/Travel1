@@ -1,0 +1,336 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/modal1.css">
+    <script src="js/me/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-table/dist/bootstrap-table.min.css">
+    <script src="bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/me/jquery.cookie.js"></script>
+    <script src="js/me/bootbox.min.js"></script>
+    <script src="js/me/touch.js"></script>
+    <script src="js/me/user.js"></script>
+    <script src="js/me/carts.js"></script>
+    <script src="js/me/personOne.js"></script>
+    <script>
+
+        function realClock(){
+            var now=new Date();
+            var year=now.getFullYear();
+            var month=now.getMonth();
+            var date=now.getDate();
+            var day=now.getDay();
+            var hour=now.getHours();
+            var minute=now.getMinutes();
+            var second=now.getSeconds();
+            month=month+1;
+            var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+            var week=arr_week[day];
+//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+            var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+                + (date < 10 ? "0" + date : date) + "  "+week+"  "+ (hour < 10 ? "0" + hour: hour)
+                + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+            clock.innerHTML="当前时间："+timeCur;
+        }
+        window.onload=function(){
+            setInterval("realClock()",1000);
+        }
+    </script>
+
+</head>
+<body>
+<header style="">
+    <nav class="navbar navbar-inverse" style="height:52px;line-height: 52px;border-radius: unset">
+        <div class="container-fluid">
+
+            <div id="clock" style="margin-left: 80px;color:#99998E;float: left"></div>
+
+            <div style="float: right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">语言 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">中文</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">英文</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbg1"><label id="localname"></label></li>
+                    <li class="navbg1"><a href="login.html" >登录</a></li>
+                    <li class="navbg1"><a href="regist.html" >注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<header style="z-index: 99">
+    <nav class="navbar navbar-default" style="top: -20px;border-radius: unset;width: 100%">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <img src="images/logoT.png"  style="margin-top: 5px;margin-left: 100px;height: 80px;width: 80px"/>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;padding-right:150px;margin-top: 20px">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop1.html">旅游商店</a></li>
+                    <li><a href="shop-list.html">旅游指南</a></li>
+                    <li> <a href="#"><span id="acar">我的订单</span></a></li>
+                    <li><a href="tour.html">旅游攻略</a></li>
+
+                    <li><a href="about-us.html">关于我们</a></li>
+                    <li><a href="#"><span id="person">个人中心</span></a></li>
+                    <!--<li><a href="#" class="lik"></a></li>-->
+                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"><span class="badge"><label id="num"></label></span></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container-fluid" style="position:relative;top:-30px;text-align: center">
+    <img src="images/background/photo1.PNG" width="100%" />
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li class="active"><a href="#">个人中心</a></li>
+            </ol>
+        </div>
+    </div>
+    <!--<div class="row" style="margin-left: 30px;">
+        <div style="float:left">
+            <button class="btn btn-primary" id="btn_export" onclick="exportTable()">
+                <span class="glyphicon glyphicon-export"></span> 导出到Excel
+            </button>
+            <button class="btn btn-info" id="btn_print">
+                <span class="glyphicon glyphicon-print"></span> 打印信息
+            </button>
+            <button class="btn btn-danger" id="btn_delete">
+                <span class="glyphicon glyphicon-print"></span> 批量删除
+            </button>
+        </div>
+        <form id="formSearch" class="form-horizontal" style="float:right;margin-top:-20px;margin-right:50px">
+            <div class="form-group" style="margin-top:15px">
+                <div class="row">
+                    <label class="control-label col-md-3" for="search_name" >商品名</label>
+                    <div class="col-md-6" >
+                        <input type="text" class="form-control" id="search_name" >
+                    </div>
+
+                    <div class="col-md-3" >
+                        <button type="button"  id="btn_query" class="btn btn-primary">查询</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>-->
+    <div class="row" style="margin-left: 30px">
+        <h4 class="modal-title">编辑个人资料</h4>
+        <form class="form-horizontal" id="editForm1" style="margin: 30px;">
+            <div class="form-group">
+            <label for="img1" class="col-md-offset-2 col-md-2 control-label">修改头像</label>
+            <div class="col-md-6">
+                <img id="img1" width="50px" height="50px"><br />
+               <!-- <input type="file" name="uphoto1" id="uphoto1"/>-->
+            </div>
+            </div>
+
+
+            <div class="form-group">
+                <input type="hidden" id="editId1" name="id1" />
+                <label for="edit_username1" class="col-md-offset-2 col-md-2 control-label">商品名称</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="username1"
+                           id="edit_username1" placeholder="username" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="edit_email1"
+                       class="col-md-offset-2 col-md-2 control-label">电子邮箱</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="email1"
+                           id="edit_email1" placeholder="email" readonly>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="edit_sex1"
+                       class="col-md-offset-2 col-md-2 control-label">性别</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="sex1"
+                           id="edit_sex1" placeholder="sex" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="edit_phone1"
+                       class="col-md-offset-2 col-md-2 control-label">手机号</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="phone1"
+                           id="edit_phone1" placeholder="phone" readonly>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="edit_description1"
+                       class="col-md-offset-2 col-md-2 control-label">具体地点</label>
+                <div class="col-md-6">
+                    <input type="text" class="form-control" name="description1"
+                           id="edit_description1" placeholder="description" readonly>
+                </div>
+            </div>
+
+            <div class="form-group modal-footer">
+                <div class="col-md-offset-4 col-md-6">
+                    <span id="returnMessage1" class="glyphicon"></span>
+                    <button type="button" id="editSubmitBtn1" class="edit1 btn btn-info" onclick="update1()" data-toggle="modal" data-target="#editWindow">Update</button>
+                    <!--<button type="reset" id="editResetBtn" class="btn btn-default">Reset</button>--><!--data-toggle="modal" data-target="#editWindow"-->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container-fluid" style="background: #444444;width: 100%">
+        <div class="row col-md-12" >
+            <div class="col-md-5">
+                <div class="fasd">
+                    <img src="images/logoT.jpg" height="91" width="92"/>
+                </div>
+                <div class="fasd1">
+                    <p>天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国旅游最富活力的成长性新锐航空企业。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul  >
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3 class="tt">订阅</h3>
+                <ul  class="tt1">
+                    <li class="tt1"><a href="#">请输入您的电子邮箱</a></li>
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="" aria-describedby="">
+                        <span class="input-group-addon" style="background: #7ECA8F">
+                            <span class="glyphicon glyphicon-send"></span>
+                        </span>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--修改-->
+
+<div class="modal fade" id="editWindow" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;</button>
+                <h4 class="modal-title">编辑个人资料</h4>
+            </div>
+            <form class="form-horizontal" id="editForm" style="margin: 30px;">
+                <div class="form-group">
+                    <label for="img2" class="col-md-offset-2 col-md-2 control-label">修改头像</label>
+                    <div class="col-md-6">
+                        <img id="img2" width="50px" height="50px"><br />
+                        <input type="file" name="uphoto" id="uphoto"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="hidden" id="editId" name="id" />
+                    <label for="edit_username" class="col-md-offset-2 col-md-2 control-label">姓名</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="username"
+                               id="edit_username" placeholder="username" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_email"
+                           class="col-md-offset-2 col-md-2 control-label">电子邮箱</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="email"
+                               id="edit_email" placeholder="email" >
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="edit_sex"
+                           class="col-md-offset-2 col-md-2 control-label">性别</label>
+                    <div class="col-md-6">
+                       <!-- <input type="text" class="form-control" name="sex"
+                               id="edit_sex" placeholder="sex" readonly>-->
+
+                        <input type="radio" name="sex" class="edit_sex" value="1" checked/>
+                        <label for="edit_sex">男</label>
+                        <input type="radio" name="sex" class="edit_sex" value="0"/>
+                        <label for="edit_sex">女</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_phone"
+                           class="col-md-offset-2 col-md-2 control-label">手机号</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="phone"
+                               id="edit_phone" placeholder="phone" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_description"
+                           class="col-md-offset-2 col-md-2 control-label">具体地点</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="description"
+                               id="edit_description" placeholder="description" >
+                    </div>
+                </div>
+
+                <div class="form-group modal-footer">
+                    <div class="col-md-offset-4 col-md-6">
+                        <span id="returnMessage" class="glyphicon"></span>
+                        <button type="button" id="editSubmitBtn" class="edit btn btn-info">Update</button>
+                        <!--<button type="reset" id="editResetBtn" class="btn btn-default">Reset</button>-->
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

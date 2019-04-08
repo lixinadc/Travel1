@@ -1,0 +1,24 @@
+.product-grid{
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.8s ease 0s;
+}
+.product-grid:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.product-grid .product-image{
+    overflow: hidden;
+}
+.product-grid .product-image a{
+    display: block;
+}
+.product-grid .product-image img{
+    width: 100%;
+    height: auto;
+    transition: all 0.8s ease 0s;
+}
+.product-grid:hover .product-image img{
+    transform: scale(1.5);
+}

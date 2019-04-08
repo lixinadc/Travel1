@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/jqzoom/jqzoom.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-table/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="css/modal1.css">
+    <script src="js/me/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap-table/dist/bootstrap-table.min.js"></script>
+      <script src="js/me/calc1.js"></script>
+       <script src="js/me/bootbox.min.js"></script>
+       <script src="js/me/jquery.cookie.js"></script>
+
+    <script src="js/me/jquery.jqzoom.js"></script>
+    <script src="js/me/shop1.js"></script>
+    <script src="js/me/stamp1.js"></script>
+    
+   
+    <script src="js/me/user.js"></script>
+    <script src="js/me/touch.js"></script>
+    <script src="js/me/carts.js"></script>
+    <script>
+        $(function () {
+            $(".jqzoom").jqueryzoom({
+                xzoom:300,
+                yzoom:300,
+                position:"right",
+                offset:50
+            });
+        });
+        function realClock(){
+            var now=new Date();
+            var year=now.getFullYear();
+            var month=now.getMonth();
+            var date=now.getDate();
+            var day=now.getDay();
+            var hour=now.getHours();
+            var minute=now.getMinutes();
+            var second=now.getSeconds();
+            month=month+1;
+            var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+            var week=arr_week[day];
+//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+            var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+                + (date < 10 ? "0" + date : date) + "  "+week+"  "+ (hour < 10 ? "0" + hour: hour)
+                + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+            clock.innerHTML="当前时间："+timeCur;
+        }
+        window.onload=function(){
+            setInterval("realClock()",1000);
+        }
+    </script>
+
+
+
+</head>
+<body>
+<header style="">
+    <nav class="navbar navbar-inverse" style="height:52px;line-height: 52px;border-radius: unset">
+        <div class="container-fluid">
+
+            <div id="clock" style="margin-left: 80px;color:#99998E;float: left"></div>
+
+            <div style="float: right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">语言 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">中文</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">英文</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbg1"><label id="localname"></label></li>
+                    <li class="navbg1"><a href="login.html" >登录</a></li>
+                    <li class="navbg1"><a href="regist.html" >注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<header style="z-index: 99">
+    <nav class="navbar navbar-default" style="top: -20px;border-radius: unset;width:100%">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <img src="images/logoT.png"  style="margin-top: 5px;margin-left: 100px;height: 80px;width: 80px"/>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;padding-right:150px;margin-top: 20px">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop1.html">旅游商店</a></li>
+                    <li><a href="shop-list.html">旅游指南</a></li>
+                    <li><a href="#"><span id="acar">我的订单</span></a></li>
+                    <li><a href="tour.html">旅游攻略</a></li>
+
+                    <li><a href="about-us.html">关于我们</a></li>
+                    <li><a href="#"><span id="person">个人中心</span></a></li>
+                    <!--<li><a href="#" class="lik"></a></li>-->
+                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"><span class="badge"><label id="num"></label></span></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container-fluid" style="position:relative;top:-30px;text-align: center">
+    <img src="images/background/photo1.PNG" width="100%"/>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li><a href="shop1.html">旅游商店</a></li>
+                <!--<li class="active">旅游</li>-->
+            </ol>
+        </div>
+    </div>
+</div>
+<div>
+
+    <table class="tabst">
+        <tr>
+            <td style="width: 400px">
+                <div class="jqzoom" style="margin-top: 20px" >
+                   <!--<input type="hidden"  id="url"/>-->
+                  
+                    <!--  <img src="images/shop/large/stamp1.jpg" width="300px" height="300px" jqimg="images/shop/large/stamp1.jpg"/>
+                    -->
+                       <img id="img2"> 
+                     <!--   <label id="img1"></label>-->
+                </div>
+            </td>
+          
+            <td style="">
+             
+                <div style="margin-top: 20px">
+                    <div style="background: red;height: 40px;line-height: 40px">
+                        <span class="glyphicon glyphicon-time" style="margin-left:10px;color: yellow"></span>
+                        <span style="color: yellow;margin-left: 10px">邮票详情</span>
+                    </div>
+                    <div style="background: #f7f7f7;height: 80px;line-height: 80px">
+                        <span style="margin-left: 10px">折扣价</span>
+                        <span style="margin-left: 30px;color: red;font-size: 20px">￥</span>
+                        <span style="color: red;font-size: 20px" id="price"></span>
+                        <span style="border: 1px solid red;color: red;font-size: 10px;padding: 3px 3px;margin-left: 30px"><span id="sale"></span></span>
+                        <span style="text-decoration: line-through;color: #999;color: grey;font-size: 10px">￥<span id="oprice"></span></span>
+                    </div>
+                    <div style="margin-top: 10px;padding-top: 10px;padding-left: 10px">
+                        <div style="margin-bottom: 10px">
+                            <span>促销</span>
+                            <span style="padding-left: 40px;padding-top: 10px;">
+                               <span style="border: 1px solid red;color: red;font-size: 10px;padding: 3px 3px;margin-left: 10px">优惠</span> 
+                                
+                               <span style="margin-left: 10px" id="pname" ></span>
+                               <span style="border: 1px solid red;color: red;font-size: 10px;padding: 3px 3px;margin-left: 10px" ><span id="typename"></span></span>
+                            </span>
+                        </div>
+                        <div>
+                            <span>运费</span>
+                            <span style="padding-left: 50px">包邮</span>
+                        </div>
+                        <div style="padding-top: 10px">
+                            <span>送积分</span>
+                            <span style="padding-left: 35px" >100</span>
+                        </div>
+                        <div style="padding-top: 10px">
+                            <span>可用</span>
+                            <span style="padding-left: 50px">90</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                            <span class="input-group-btn">
+                              <button class="btn btn btn-default" type="button" id="min1" value="-">-</button>
+                            </span>
+                        <input type="text" class="form-control"  value="0" id="text_box1" readonly>
+                        <span class="input-group-btn">
+                             <button class="btn btn-default" type="button" id="add1" value="+">+</button>
+                        </span>
+                    </div>
+                    <div>
+                        <span style="font-size: 20px">￥</span><label id="singlepay1"></label>
+                        <label id="stat1" ></label>
+                    </div>
+                </div>
+            </td>
+          
+            <td style="">
+                <div  style="text-align: center">
+                    <button class="btn btn-danger" style="margin-top: -40px" id="shopcart">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        加入购物车
+                    </button><br>
+                    <button class="btn btn-success" style="margin-top: 10px" id="buy">
+                        <span class="glyphicon glyphicon-shopping-cart" ></span>
+                        一键购
+                    </button><br>
+                    <button class="btn btn-default" style="margin-top: 20px">
+                        <span class="glyphicon glyphicon-user"></span>
+                        咨询客服
+                    </button>
+                    <div style="margin-top: 20px;margin-right:80px">
+                        <p style="margin-right: 30px">服务支持：</p>
+                        <span style="color: blue">天天送达</span>
+                        <span style="color: blue;margin-right: -40px">夜间配</span><br>
+                        <span style="color: blue;margin-right: 30px">自提</span>
+                    </div>
+                </div>
+            </td>
+        
+        </tr>
+    </table>
+        
+</div>
+<footer>
+    <div class="container-fluid" style="background: #444444;width: 100%">
+        <div class="row col-md-12">
+            <div class="col-md-5">
+                <div class="fasd">
+                    <img src="images/logoT.jpg" height="91" width="92"/>
+                </div>
+                <div class="fasd1">
+                    <p>天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国旅游最富活力的成长性新锐航空企业。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul  >
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3 class="tt">订阅</h3>
+                <ul  class="tt1">
+                    <li class="tt1"><a href="#">请输入您的电子邮箱</a></li>
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="" aria-describedby="">
+                        <span class="input-group-addon" style="background: #7ECA8F">
+                            <span class="glyphicon glyphicon-send"></span>
+                        </span>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div class="modal fade" id="mymodal">
+    <div class="modal-dialog" style="background: white">
+        <div class="modal-header " style="background: #3174AF">
+            <span class="glyphicon glyphicon-plus"></span>
+            <span style="color: white">支付</span>
+            <button class="close" data-dismiss="modal">
+                <span aria-hidden="true">x</span>
+            </button>
+        </div>
+
+            <div class="modal-body" style="text-align: center">
+
+                <img src="images/img/erweima.jpg" height="200" width="200"/></div>
+            <div class="modal-footer">
+
+                <button class="btn btn-success" data-dismiss="modal" >ok</button>
+            </div>
+
+</div>
+</div>
+</body>
+</html>

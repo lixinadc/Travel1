@@ -1,0 +1,341 @@
+﻿<!doctype html>
+<html lang="en-US">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>RAIDERS</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/ionicons.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+    <link rel='stylesheet' href='css/prettyPhoto.css' type='text/css' media='all'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="all">
+    <link href="http://fonts.googleapis.com/css?family=Great+Vibes%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="css/tour.css">
+    <script language="javascript">
+        function realClock(){
+            var now=new Date();
+            var year=now.getFullYear();
+            var month=now.getMonth();
+            var date=now.getDate();
+            var day=now.getDay();
+            var hour=now.getHours();
+            var minute=now.getMinutes();
+            var second=now.getSeconds();
+            month=month+1;
+            var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+            var week=arr_week[day];
+//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+            var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+                + (date < 10 ? "0" + date : date) + "  "+week+"  "+ (hour < 10 ? "0" + hour: hour)
+                + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+            clock.innerHTML="当前时间："+timeCur;
+        }
+        window.onload=function(){
+            setInterval("realClock()",1000);
+        }
+    </script>
+
+</head>
+<body>
+
+
+
+
+<div class="noo-spinner">
+    <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+    </div>
+</div>
+<div id="menu-slideout" class="slideout-menu hidden-md-up">
+    <div class="mobile-menu">
+        <ul id="mobile-menu" class="menu">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="shop1.html">旅游商店</a></li>
+            <li><a href="shop-list.html">旅游指南</a></li>
+            <li><a href="cart.html">我的订单</a></li>
+            <li><a href="tour.html">旅游攻略</a></li>
+            <li><a href="about-us.html">关于我们</a></li>
+            <li><a href="#"><span id="">个人中心</span></a></li>
+        </ul>
+    </div>
+</div>
+<div class="site">
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="topbar-text">
+                        <div id="clock"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="topbar-menu">
+                        <ul class="topbar-menu">
+                            <li class="dropdown">
+                                <a href="#">语言</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">中文</a></li>
+                                    <li><a href="#">英语</a></li>
+                                </ul>
+                            </li>
+                            <li class="navbg1"><label id="localname"></label></li>
+                            <li><a href="login.html">登陆</a></li>
+                            <li><a href="regist.html">注册</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="header" class="header header-desktop header-2">
+        <div class="top-search">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form>
+                            <input type="search" class="top-search-input" name="s" placeholder="你想要找什么？" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" id="logo">
+                        <img class="logo-image" src="images/logoT.png" alt="Organik Logo" />
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <div class="header-right">
+                        <nav class="menu">
+                            <ul class="main-menu">
+                                <li><a href="index.html">首页</a></li>
+                                <li><a href="shop1.html">旅游商店</a></li>
+                                <li><a href="shop-list.html">旅游指南</a></li>
+                                <li><a href="#"><span id="acar">我的订单</span></a></li>
+                                <li><a href="tour.html">旅游攻略</a></li>
+                                <li><a href="about-us.html">关于我们</a></li>
+                                <li><a href="#"><span id="person">个人中心</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="btn-wrap">
+                            <div class="mini-cart-wrap">
+                                <div class="mini-cart">
+                                    <div class="mini-cart-icon">
+                                        <i class="ion-bag"></i><label id="num" style="position: absolute;z-index:99;color:white;font-size: 5px;margin-top: 5px"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="top-search-btn-wrap">
+                                <div class="top-search-btn">
+                                    <a href="javascript:void(0);">
+                                        <i class="ion-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="header header-mobile">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div class="header-left">
+                        <div id="open-left"><i class="ion-navicon"></i></div>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="header-center">
+                        <a href="#" id="logo-2">
+                            <img class="logo-image" src="images/logoT.png" alt="Organik Logo" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="header-right">
+                        <div class="mini-cart-wrap">
+                            <a href="cart.html">
+                                <div class="mini-cart">
+                                    <div class="mini-cart-icon" data-count="2">
+                                        <i class="ion-bag"></i>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="main">
+        <div class="section section-bg-10 pt-11 pb-17">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="page-title text-center">RAIDERS</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section border-bottom pt-2 pb-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="breadcrumbs">
+                            <li><a href="#"><b>首页</b></a></li>
+                            <li><b>旅游景点策略</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 50px">
+            <div class="row col-md-12" style="text-align: center">
+                <strong style="font-size: 50px">出游攻略</strong><br>
+                REIDERS
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="border: 1px solid #F0F0F0">
+                    <p style="font-size: 30px;color: grey;margin-top: 10px">03-08</p>
+                    <span style="color: grey">2019</span>
+                    <hr />
+                    <strong>韩国人去玩人山人海，玩的开心，吃得放心</strong>
+                    <div class="product-grid" style="margin-top:10px">
+                        <div class="product-image">
+                            <a href="#">
+                                <img class="pic-1" src="img/place-1.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px">对韩国最初的印象来源大概就是小学的时候妈妈看的韩剧，中学、大学时候同班女生看的韩剧。 虽然一部没看过，但是还是知道要在初雪的日子喝啤酒吃炸鸡，要与喜欢的人在一个温暖...</p>
+                    <a href="#" style="text-decoration: none;color: grey">MORE>></a>
+                </div>
+
+                <div class="col-md-4" style="border: 1px solid #F0F0F0">
+                    <p style="font-size: 30px;color: grey;margin-top: 10px">03-16</p>
+                    <span style="color: grey">2019</span>
+                    <hr />
+                    <strong>有哪些旅行神器值得推荐？</strong>
+                    <div class="product-grid" style="margin-top:10px">
+                        <div class="product-image">
+                            <a href="#">
+                                <img class="pic-1" src="img/place-2.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px">据报道，新加坡陆路交通管理局和SMRT就裕群站地铁事故发布联合声明称，当天早上8时18分，一列开往大士连路站的列车在裕群站停滞。 一分钟后，另一列车在故障列车后方停下。8时...</p>
+                    <a href="#" style="text-decoration: none;color: grey">MORE>></a>
+                </div>
+                <div class="col-md-4" style="border: 1px solid #F0F0F0">
+                    <p style="font-size: 30px;color: grey;margin-top: 10px">04-20</p>
+                    <span style="color: grey">2019</span>
+                    <hr />
+                    <strong>莫斯科机场转机攻略，其实没那么难</strong>
+                    <div class="product-grid" style="margin-top:10px">
+                        <div class="product-image">
+                            <a href="#">
+                                <img class="pic-1" src="img/place-3.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <p style="margin-top: 10px">圣诞、元旦、春节都是大家翘首期盼的节日，但节日去哪却成了头疼的问题。有人说，想去一个不太远的地方，气候怡人，有美景和美食，还要有丰富的文化艺术。那么，新加坡绝对是...</p>
+                    <a href="#" style="text-decoration: none;color: grey">MORE>></a>
+                </div>
+            </div>
+        </div>
+
+    <footer class="footer" style="margin-top: 50px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="images/logoT.png" class="footer-logo" alt="" />
+                    <p>
+                        天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国旅游最富活力的成长性新锐航空企业。
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">天天旅游</h3>
+                        <ul>
+                            <li><a href="#">天天旅游</a></li>
+                            <li><a href="#">天天旅游</a></li>
+                            <li><a href="#">天天旅游</a></li>
+                            <li><a href="#">天天旅游</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="widget">
+                        <h3 class="widget-title">天天旅游</h3>
+                        <ul>
+                            <li><a href="#">天天旅游</a></li>
+                            <li><a href="#">天天旅游</a></li>
+                            <li><a href="#">天天旅游</a></li>
+                            <li><a href="#">天天旅游</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget">
+                        <h3 class="widget-title">订阅</h3>
+                        <p>
+                            输入您的邮箱地址
+                        </p>
+                        <form class="newsletter">
+                            <input type="email" name="EMAIL" placeholder="Your email address" required="" />
+                            <button><i class="fa fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    Copyright &copy; 2017.3+1天软学院所有<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+                </div>
+                <div class="col-md-4">
+                    <img src="images/footer_payment.png" alt="" />
+                </div>
+
+            </div>
+        </div>
+        <div class="backtotop" id="backtotop"></div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr-2.7.1.min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+<script type='text/javascript' src='js/jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='js/jquery.prettyPhoto.init.min.js'></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script src="js/me/carts.js"></script>
+<script src="js/me/user.js"></script>
+<script src="js/me/bootbox.min.js"></script>
+<script src="js/me/touch.js"></script>
+</body>
+</html>

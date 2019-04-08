@@ -1,0 +1,646 @@
+﻿<!doctype html>
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>首页</title>
+<link rel="stylesheet" href="css/css/style.css"/>
+<link rel="stylesheet" href="css/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/bootstrap.css"/>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/ionicons.min.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/settings.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+<link rel="stylesheet" href="css/custom.css" type="text/css" media="all">
+<link href="http://fonts.googleapis.com/css?family=Great+Vibes%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+<script language="javascript">
+        function realClock(){
+	      var now=new Date();
+	      var year=now.getFullYear();
+	      var month=now.getMonth();
+	      var date=now.getDate();
+	      var day=now.getDay();
+	      var hour=now.getHours();
+	      var minute=now.getMinutes();
+	      var second=now.getSeconds();
+	      month=month+1; 
+	      var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+	      var week=arr_week[day];
+	//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+	      var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+        + (date < 10 ? "0" + date : date) + " " +week +" "+ (hour < 10 ? "0" + hour: hour)
+        + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+          clock.innerHTML="当前时间："+timeCur;
+        }
+      	window.onload=function(){
+           setInterval("realClock()",1000);
+      	}
+</script>
+
+
+</head>
+<body>
+
+<div class="noo-spinner">
+	<div class="spinner">
+		<div class="cube1"></div>
+		<div class="cube2"></div>
+	</div>
+</div>
+
+<div class="site">
+	<div class="topbar">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="topbar-text">
+						<div id="clock"></div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="topbar-menu">
+						<ul class="topbar-menu">
+							<li class="dropdown">
+								<a href="#">语言</a>
+								<ul class="sub-menu">
+									<li><a href="#">中文</a></li>
+									<li><a href="#">英语</a></li>
+								</ul>
+							</li>
+							<li><label id="localname"></label></li>
+							<li><a href="login.html">登陆</a></li>
+							<li><a href="regist.html">注册</a></li>
+							<li><a href="#"><span id="cancel">注销</span></a></li>
+							<!--<li><a href="login1.html">后台管理</a></li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<header id="header" class="header header-desktop header-2">
+		<div class="top-search">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<form>
+							<input type="search" class="top-search-input" name="s" placeholder="你想要找什么？" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<a href="#" id="logo">
+						<img class="logo-image" src="images/logoT.jpg" alt="Organik Logo" />
+					</a>
+				</div>
+				<div class="col-md-9">
+					<div class="header-right">
+						<nav class="menu">
+							<ul class="main-menu">
+								<li><a href="index.html">首页</a></li>
+								<li><a href="shop1.html">旅游商店</a></li>
+								<li><a href="shop-list.html">旅游指南</a></li>
+								<li><a href="#"><span id="acar">我的订单</span></a></li>
+								<li><a href="tour.html">旅游攻略</a></li>
+
+								<li><a href="about-us.html">关于我们</a></li>
+								<li><a href="#"><span id="person">个人中心</span></a></li>
+								<!--<li><a href="contact-us.html">联系我们</a></li>-->
+							</ul>
+						</nav>
+						<div class="btn-wrap">
+							<div class="mini-cart-wrap">
+								<div class="mini-cart">
+									<div class="mini-cart-icon">
+										<i class="ion-bag"></i>
+										<label id="num" style="position: absolute;z-index:99;color:white;font-size: 5px;margin-top: -23px;margin-left:-5px"></label>
+									</div>
+								</div>
+
+							</div>
+							<div class="top-search-btn-wrap">
+								<div class="top-search-btn">
+									<a href="javascript:void(0);">
+										<i class="ion-search"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<header class="header header-mobile">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2">
+					<div class="header-left">
+						<div id="open-left"><i class="ion-navicon"></i></div>
+					</div>
+				</div>
+				<div class="col-xs-8">
+					<div class="header-center">
+						<a href="#" id="logo-2">
+							<img class="logo-image" src="images/logoT.png" alt="Organik Logo" />
+						</a>
+					</div>
+				</div>
+				<div class="col-xs-2">
+					<div class="header-right">
+						<div class="mini-cart-wrap">
+							<a href="carts.html">
+								<div class="mini-cart">
+									<div class="mini-cart-icon" >
+										<i class="ion-bag"></i>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="slider-area" >
+			<div class="block-slider block-slider4" >  
+				<ul id="bxslider-home4">
+					<li>
+
+						<img src="images/caroimg/timg.jpg" height="365" width="1163"/>
+						<div class="caption-group">
+						</div>
+					</li>
+					<li>
+
+						<img src="images/caroimg/timg1.jpg" height="365" width="1163"/>
+						<div class="caption-group">
+						</div>
+					</li>
+					<li>
+
+						<img src="images/caroimg/timg2.jpg"/>
+						<div class="caption-group">
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	<div id="main">
+		
+		<div class="section section-bg-1 section-cover pt-17 pb-3">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="mt-3 mb-3">
+							<video src="video/tour.mp4" width="555px" height="300px" controls="controls" poster="images/caffe-1.jpg" loop="loop" />
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="mb-1 section-pretitle default-left">Welcome to</div>
+						<h2 class="section-title mtn-2 mb-3">天天旅游</h2>
+						<p class="mb-4">
+							天天旅游有限公司（简称：天天旅游；英文名称：DayDayTravelingCompanyLimited）是经中国旅游总局批准，中国大陆第一家旅游的民营航空企业。天天旅游总部设在北京，以天津滨海国际机场为主运营基地，截至2013年9月底，天天旅游拥有23处旅游景点（韩国，日本，新加坡，巴厘岛等）。
+						</p>
+						<a class="organik-btn arrow" href="count.html">旅游统计</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section section-bg-2 section-cover pt-14">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="text-center">
+							<div class="mb-1 section-pretitle white">Hot Snap</div>
+							<h2 class="section-title mtn-2 mb-3">特价旅游套餐</h2>
+							<p class="white mb-4">
+								成都—都江堰—汶川—茂县—松潘—黄龙—九寨沟—平武—江油—绵阳—成都
+							</p>
+							<div class="countdown-wrap mb-4">
+								<div class="countdown-content">
+									<div class="pl-clock countdown-bar" data-time="2019/09/10"></div>
+
+								</div>
+							</div>
+							<a class="organik-btn brown" href="#">立即抢购</a>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="text-center floating">
+							<img src="images/tu1.png" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section pt-12 pb-9">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="text-center mb-1 section-pretitle">Discover</div>
+						<h2 class="text-center section-title mtn-2">著名景点</h2>
+						<div class="organik-seperator center">
+							<span class="sep-holder"><span class="sep-line"></span></span>
+							<div class="sep-icon"><i class="organik-flower"></i></div>
+							<span class="sep-holder"><span class="sep-line"></span></span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 p-0">
+						<div class="text-center">
+							<ul class="masonry-filter">
+								<li><a href="#" data-filter="" class="active">全部</a></li>
+								<li><a href="#" data-filter=".dried">内地的</a></li>
+								<li><a href="#" data-filter=".fruits">欧洲</a></li>
+								<li><a href="#" data-filter=".vegetables">北美洲</a></li>
+								<li><a href="#" data-filter=".juice">南美洲</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="product-grid masonry-grid-post">
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center juice">
+							<div class="product-thumb">
+								<a href="place-detail.html">
+									<div class="badges">
+										<span class="hot">Hot</span>
+										<span class="onsale">Sale!</span>
+									</div>
+									<img src="images/shop/thumb/6666.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="shop-detail.html">
+									<h2 class="title">秘鲁</h2>
+									<!-- <span class="price">
+										<del>$1300.00</del> 
+										<ins>$1100.00</ins>
+									</span>
+									 -->
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center fruits">
+							<div class="product-thumb">
+								<a href="place-detail.html">
+									<div class="badges">
+										<span class="hot">Hot</span>
+									</div>
+									<img src="images/shop/thumb/2222.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="place-detail.html">
+									<h2 class="title">冰岛</h2>
+									
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center dried">
+							<div class="product-thumb">
+								<a href="place-detail.html">
+									<div class="badges">
+										<span class="hot">Hot</span>
+									</div>
+									<img src="images/shop/thumb/1111.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="place-detail.html">
+									<h2 class="title">上海</h2>
+									
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center fruits">
+							<div class="product-thumb">
+								<a href="shop-detail.html">
+									<img src="images/shop/thumb/3333.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="place-detail.html">
+									<h2 class="title">俄罗斯</h2>
+									
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center vegetables">
+							<div class="product-thumb">
+								<a href="place-detail.html">
+									<div class="badges">
+										<span class="hot">Hot</span>
+									</div>
+									<img src="images/shop/thumb/7777.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="place-detail.html">
+									<h2 class="title">美国</h2>
+									
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center vegetables">
+							<div class="product-thumb">
+								<a href="place-detail.html">
+									<div class="badges">
+										<span class="hot">Hot</span>
+									</div>
+									<img src="images/shop/thumb/8888.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="place-detail.html">
+									<h2 class="title">加拿大</h2>
+									
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center vegetables">
+							<div class="product-thumb">
+								<a href="place-detail.html">
+									<img src="images/shop/thumb/9999.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="place-detail.html">
+									<h2 class="title">墨西哥</h2>
+									
+								</a>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 product-item masonry-item text-center fruits">
+							<div class="product-thumb">
+								<a href="place-detail.html">
+									<div class="badges">
+										<span class="hot">Hot</span>
+									</div>
+									<img src="images/shop/thumb/5555.png" alt="" />
+								</a>
+								<div class="product-action">
+									<span class="add-to-cart">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to cart"></a>
+									</span>
+									<span class="wishlist">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Add to wishlist"></a>
+									</span>
+									<span class="quickview">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Quickview"></a>
+									</span>
+									<span class="compare">
+										<a href="#" data-toggle="tooltip" data-placement="top" title="Compare"></a>
+									</span>
+								</div>
+							</div>
+							<div class="product-info">
+								<a href="place-detail.html">
+									<h2 class="title">挪威</h2>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="loadmore-contain">
+						<a class="organik-btn small" href="#"> 加载更多 </a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5">
+					<img src="images/logoT.png" class="footer-logo" alt="" />
+					<p>
+						天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国民航最富活力的成长性新锐旅游企业。
+					</p>
+					<div class="footer-social">
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="widget">
+						<h3 class="widget-title">天天旅游</h3>
+						<ul>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="widget">
+						<h3 class="widget-title">天天旅游</h3>
+						<ul>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+							<li><a href="#">天天旅游</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="widget">
+						<h3 class="widget-title">订阅</h3>
+						<p>
+							输入您的邮箱地址
+						</p>
+						<form class="newsletter">
+							<input type="email" name="EMAIL" placeholder="Your email address" required="" />
+							<button><i class="fa fa-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<div class="copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					Copyright &copy; 2019.天软学院所有<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+				</div>
+				<div class="col-md-4">
+					<img src="images/footer_payment.png" alt="" />
+				</div>
+
+			</div>
+		</div>
+		<div class="backtotop" id="backtotop"></div>
+	</div>
+</div>
+
+<script src="js/js/jquery-1.9.1.js">
+			
+		</script>
+		<script src="bootstrap/js/bootstrap.js">
+			
+		</script>
+		<script src="js/js/owl.carousel.min.js">
+			
+		</script>
+		<script src="js/js/jquery.sticky.js">
+			
+		</script>
+		<script src="js/js/jquery.easing.1.3.min.js">
+			
+		</script>
+		<script src="js/js/main.js">
+			
+		</script>
+		<script src="js/js/bxslider.min.js">
+			
+		</script>
+		<script src="js/js/script.slider.js">
+			
+		</script>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr-2.7.1.min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+<script type="text/javascript" src="js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+<script type="text/javascript" src="js/jquery.isotope.init.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script src="js/me/jquery.cookie.js"></script>
+
+<script src="js/me/user.js"></script>
+<script src="js/me/bootbox.min.js"></script>
+<script src="js/me/touch.js"></script>
+<script type="text/javascript" src="js/me/carts.js"></script>
+
+
+<script type="text/javascript" src="js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="js/jquery.themepunch.revolution.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.video.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="js/extensions/revolution.extension.parallax.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>资产分类管理</title>
+    <script src="../../js/me/jquery.min.js"></script>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../bootstrap-table/dist/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../bootstrap-select/dist/css/bootstrap-select.min.css">
+    <script src="../../bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="../../bootstrap-table/dist/locale/bootstrap-table-zh-CN.js"></script>
+
+   <!-- <link rel="stylesheet" href="../../bootstrap-switch/dist/css/bootstrap2/bootstrap-switch.css">
+    <script src="../../bootstrap-switch/dist/js/bootstrap-switch.js"></script>-->
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../js/me/bootbox.min.js"></script>
+    <script src="../../js/me/backstage/catalog.js"></script>
+
+
+</head>
+<body>
+   <div class="container-fluid">
+       <div class="row">
+           <div class="col-md-12">
+               <div class="input-group">
+                   <span class="input-group-addon" style="border-color: white;background: white">资源分类：</span>
+                   <select class="selCata" >
+                       <option value="-1">全部</option>
+                   </select>
+                   <span class="kong1"></span>
+                   <!--<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #F4F4F4;width: 120px">-->
+                       <!--<span class="zi">全部</span> <span class="caret"></span>-->
+                   <!--</button>-->
+
+                   <span class="kong1">
+               <span>商品名称：</span>
+               <input type="text"  id="nameKey" style="width: 200px;height: 30px">
+           </span>
+
+
+                   <span class="kong1">
+             <button class="btn btn-primary" id="query">
+             <span class="glyphicon glyphicon-search">
+               检索Search
+             </span>
+             </button>
+           </span>
+
+           </div>
+       </div>
+   </div>
+
+       <div class="row">
+           <div class="col-md-12">
+               <div class="btn-group" style="margin-top: 10px;padding-left: 10px">
+                   <button class="btn btn-success" data-toggle="modal" data-target="#mymodal">
+               <span class="glyphicon glyphicon-plus">
+                    新增资产 Add
+               </span>
+                   </button>
+
+
+               </div>
+           </div>
+       </div>
+       <div class="row" style="margin-top: 10px">
+           <div class="col-md-12">
+               <table id="catalogTab"></table>
+           </div>
+       </div>
+<!--添加-->
+       <div class="modal fade" id="mymodal">
+           <div class="modal-dialog" style="background: white">
+               <div class="modal-header">
+                   <span class="glyphicon glyphicon-plus"></span>
+                   新建新资产
+                   <button class="close" data-dismiss="modal">
+                       <span aria-hidden="true">x</span>
+                   </button>
+               </div>
+               <form action="#" method="post" id="addproduct">
+               <div class="modal-body">
+                   上传商品图片<input type="file" name="pphoto" />
+
+                   <div class="input-group">
+                    <span class="input-group-addon" >
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                       <input type="text" class="form-control" name="pname" id="pname" placeholder="商品名称" aria-describedby="zname">
+                   </div>
+                   <div class="input-group">
+                    <span class="input-group-addon" >
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                       <select class="selCata" name="typeid">
+                           <option value="-1">全部</option>
+                       </select>
+                   </div>
+                   <div class="input-group" style="margin-top: 10px">
+                    <span class="input-group-addon" >
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                       <input type="text" class="form-control" name="price" id="price" placeholder="现价" aria-describedby="zpp">
+                   </div>
+                   <div class="input-group" style="margin-top: 10px">
+                    <span class="input-group-addon" >
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                       <input type="text" class="form-control" name="oprice" id="oprice" placeholder="原价" aria-describedby="zpp">
+                   </div>
+                   <div class="input-group" style="margin-top: 10px">
+                    <span class="input-group-addon" >
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                       <input type="text" class="form-control" name="sale" id="sale" placeholder="打折数" aria-describedby="zpp">
+                   </div>
+                   <div class="input-group" style="margin-top: 10px">
+                    <span class="input-group-addon" >
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                       <input type="text" class="form-control" name="pnum" id="pnum" placeholder="数量" aria-describedby="zpp">
+                   </div>
+               </div>
+               <div class="modal-footer">
+                   <input type="button" class="btn btn-success" data-dismiss="modal" id="addpro" value="保存"></input>
+                   <input type="button" class="btn btn-warning" data-dismiss="modal" value="取消"></input>
+               </div>
+               </form>
+           </div>
+       </div>
+
+   </div>
+   <!--编辑-->
+   <div class="modal fade" id="editWindow" role="dialog">
+       <div class="modal-dialog">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <button type="button" class="close" data-dismiss="modal"
+                           aria-hidden="true">&times;</button>
+                   <h4 class="modal-title">编辑商品</h4>
+               </div>
+               <form class="form-horizontal" id="editForm" style="margin: 30px;">
+                   <label for="img1" class="col-md-offset-2 col-md-2 control-label">修改商品图片</label>
+                   <div class="col-md-6">
+                       <img id="img1" width="50px" height="50px"><br />
+                       <input type="file" name="bphoto" id="bphoto"/>
+                   </div>
+
+
+
+                   <div class="form-group">
+                       <input type="hidden" id="editId" name="id" />
+                       <label for="edit_pname" class="col-md-offset-2 col-md-2 control-label">商品名称</label>
+                       <div class="col-md-6">
+                           <input type="text" class="form-control" name="pname1"
+                                  id="edit_pname" placeholder="pname" >
+                       </div>
+                   </div>
+                   <div class="form-group">
+                       <label for="edit_price"
+                              class="col-md-offset-2 col-md-2 control-label">分类</label>
+                       <div class="col-md-6">
+
+                           <select class="selCata" name="typeid1" id="edit_typeid">
+                              <!-- <option value="-1">全部</option>-->
+                           </select>
+                       </div>
+                   </div>
+
+
+                   <div class="form-group">
+                   <label for="edit_price"
+                          class="col-md-offset-2 col-md-2 control-label">现价</label>
+                   <div class="col-md-6">
+                       <input type="text" class="form-control" name="price1"
+                              id="edit_price" placeholder="price" >
+                   </div>
+               </div>
+                   <div class="form-group">
+                       <label for="edit_oprice"
+                              class="col-md-offset-2 col-md-2 control-label">原价</label>
+                       <div class="col-md-6">
+                           <input type="text" class="form-control" name="oprice1"
+                                  id="edit_oprice" placeholder="oprice" >
+                       </div>
+                   </div>
+                   <div class="form-group">
+                       <label for="edit_sale"
+                              class="col-md-offset-2 col-md-2 control-label">折扣</label>
+                       <div class="col-md-6">
+                           <input type="text" class="form-control" name="sale1"
+                                  id="edit_sale" placeholder="sale" >
+                       </div>
+                   </div>
+                   <div class="form-group">
+                       <label for="edit_pnum"
+                              class="col-md-offset-2 col-md-2 control-label">数量</label>
+                       <div class="col-md-6">
+                           <input type="text" class="form-control" name="pnum1"
+                               id="edit_pnum" placeholder="number" >
+
+                       </div>
+                   </div>
+                   <div class="form-group modal-footer">
+                       <div class="col-md-offset-4 col-md-6">
+                           <span id="returnMessage" class="glyphicon"></span>
+                           <button type="button" id="editSubmitBtn" class="btn btn-info">Update</button>
+                           <button type="reset" id="editResetBtn" class="btn btn-default">Reset</button>
+                       </div>
+                   </div>
+               </form>
+           </div>
+       </div>
+   </div>
+</body>
+</html>

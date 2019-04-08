@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>place-detail</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>Contact</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/ionicons.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/owl.theme.css" type="text/css" media="all">
+    <link rel='stylesheet' href='css/prettyPhoto.css' type='text/css' media='all'>
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/custom.css" type="text/css" media="all">
+    <link href="http://fonts.googleapis.com/css?family=Great+Vibes%7CLato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="css/tour.css">
+    <script language="javascript">
+        function realClock(){
+            var now=new Date();
+            var year=now.getFullYear();
+            var month=now.getMonth();
+            var date=now.getDate();
+            var day=now.getDay();
+            var hour=now.getHours();
+            var minute=now.getMinutes();
+            var second=now.getSeconds();
+            month=month+1;
+            var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+            var week=arr_week[day];
+//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+            var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+                + (date < 10 ? "0" + date : date) + "  "+week+"  "+ (hour < 10 ? "0" + hour: hour)
+                + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+            clock.innerHTML="当前时间："+timeCur;
+        }
+        window.onload=function(){
+            setInterval("realClock()",1000);
+        }
+    </script>
+</head>
+<body>
+<div class="noo-spinner">
+    <div class="spinner">
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+    </div>
+</div>
+
+<div class="site">
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="topbar-text">
+                        <div id="clock"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="topbar-menu">
+                        <ul class="topbar-menu">
+                            <li class="dropdown">
+                                <a href="#">语言</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#">中文</a></li>
+                                    <li><a href="#">英语</a></li>
+                                </ul>
+                            </li>
+                            <li class="navbg1"><label id="localname"></label></li>
+                            <li><a href="login.html">登陆</a></li>
+                            <li><a href="regist.html">注册</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="header" class="header header-desktop header-2">
+        <div class="top-search">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form>
+                            <input type="search" class="top-search-input" name="s" placeholder="你想要找什么？" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="#" id="logo">
+                        <img class="logo-image" src="images/logoT.png" alt="Organik Logo" />
+                    </a>
+                </div>
+                <div class="col-md-9">
+                    <div class="header-right">
+                        <nav class="menu">
+                            <ul class="main-menu">
+                                <li><a href="index.html">首页</a></li>
+                                <li><a href="shop1.html">旅游商店</a></li>
+                                <li><a href="shop-list.html">旅游指南</a></li>
+                                <li> <a href="#"><span id="acar">我的订单</span></a></li>
+                                <li><a href="tour.html">旅游攻略</a></li>
+
+                                <li><a href="about-us.html">关于我们</a></li>
+                                <li><a href="#"><span id="person">个人中心</span></a></li>
+                            </ul>
+                        </nav>
+                        <div class="btn-wrap">
+                            <div class="mini-cart-wrap">
+                                <div class="mini-cart">
+                                    <div class="mini-cart-icon" >
+                                        <i class="ion-bag"></i><label id="num" style="position: absolute;z-index:99;color:white;font-size: 5px;margin-top: 5px"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="top-search-btn-wrap">
+                                <div class="top-search-btn">
+                                    <a href="javascript:void(0);">
+                                        <i class="ion-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <header class="header header-mobile">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div class="header-left">
+                        <div id="open-left"><i class="ion-navicon"></i></div>
+                    </div>
+                </div>
+                <div class="col-xs-8">
+                    <div class="header-center">
+                        <a href="#" id="logo-2">
+                            <img class="logo-image" src="images/logoT.png" alt="Organik Logo" />
+                        </a>
+                    </div>
+                </div>
+                <!--<div class="col-xs-2">-->
+                    <!--<div class="header-right">-->
+                        <!--<div class="mini-cart-wrap">-->
+                            <!--<a href="cart.html">-->
+                                <!--<div class="mini-cart">-->
+                                    <!--<div class="mini-cart-icon" data-count="2">-->
+                                        <!--<i class="ion-bag"></i>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </header>
+    <div id="main">
+        <div class="section section-bg-10 pt-11 pb-17">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="page-title text-center">RAIDERS</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section border-bottom pt-2 pb-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="breadcrumbs">
+                            <li><a href="#"><b>首页</b></a></li>
+                            <li><b>地点详情</b></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: center">
+                   <h2>一边旅游一边玩，哪怕是人山人海</h2>
+                    <p style="margin-top: 10px">关键字:去旅游，去玩，人山人海</p>
+                    <p style="margin-top: 10px;color: grey;">日期：2019-01-01 10:32:44 &nbsp;&nbsp;文章作者：admin &nbsp;&nbsp;我要分享</p>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p style="text-indent: 2em;">对韩国最初的印象来源大概就是小学的时候妈妈看的韩剧，中学、大学时候同班女生看的韩剧。</p>
+                    <p>
+                        虽然一部没看过，但是还是知道要在初雪的日子喝啤酒吃炸鸡，要与喜欢的人在一个温暖的午后喝(调)一下午的咖啡(情)，要跟爱人在首尔塔上约会然后锁上一个大大的同心锁&hellip;&hellip;再到后来的印象就是来源于朋友圈里的代购，韩国的化妆品便宜又好用，买不了吃亏也买不了上当。</p>
+                    <p style="text-indent: 2em;">
+                        再加上各大旅游网站对去韩国机票超便宜白菜价的宣传，去韩国办签证也不贵&hellip;&hellip;所有的这些拼拼凑凑的构成了我要去韩国的动机。</p>
+                    <p style="text-indent: 2em;">
+                        一点不成熟的小建议</p>
+                    <p>
+                        出行时间</p>
+                    <p style="text-indent: 2em;">
+                        四五月份是去韩国的最佳旅行时间，以小编的经验，3月底韩国其实已经迎来了自春天，而且还是在清明节前，这时的机票相比清明后要便宜500rmb左右，简直是出行的绝佳时机。</p>
+                    <p>
+                        交通</p>
+                    <p style="text-indent: 2em;">
+                        在韩国出行的最佳方式无疑是地铁，在机场的便利店就可以买到地铁卡，但是地铁卡里面是没有储值金额的，需要再用现金充值哦。如果玩4-5天充值3000韩元足够了，在当地任何的711、GS25等便利店都可以充值。</p>
+                    <p style="text-indent: 2em;">
+                        韩国大多数地铁路线用韩文和英文标记，首尔地铁有很多大站也会有中文报站，但是下载一款韩国地铁的app也是很有必要的。如果你是土豪，当然不介意你打车，一般出租车起步价是2800-3000韩元，折合人民币16块钱左右，真的是比我帝都的起步价还要高。</p>
+                    <h4>
+                        其他</h4>
+                    <p style="text-indent: 2em;">
+                        韩国的总体消费水平相比国内还是要高一些的，吃饭及买一些日常用品都相对较贵，普通的一碗拉面或者一碗拌饭要8000韩元左右，折合人民币约40元。</p>
+                    <p style="text-indent: 2em;">
+                        小编在韩国时的一个感受就是很多地方都要脱鞋，吃饭时候你得脱鞋、进试衣间试衣服的时候也要脱鞋，所以来的时候穿一双容易穿脱的鞋为宜。</p>
+                    <p>
+                        玩在首尔</p>
+                    <h4>
+                        首尔塔</h4>
+                    <p style="text-indent: 2em;">
+                        韩国超人气地标建筑，《来自星星的你》等热门韩剧的拍摄地。塔顶的锁道是无数情侣寄托对未来美好憧憬的象征，《我们结婚了》里的维尼夫妇尼坤和宋茜也在上面锁了一个大大的同心锁，现在上去还能看到那把锁呢！比较推荐傍晚登塔，能俯瞰到整个首尔的绝美夜景。</p>
+                    <p style="text-indent: 2em;">
+                        首尔塔就相当于上海的东方之珠，都是城市的地标建筑，只不过韩国的首尔塔被人为定义的更浪漫些。<br />
+                        若是想要详细了解N首尔塔的全部资讯，可以在地下1层的服务台花3,000韩元租一台语音导游讲解器。该讲解器支持中、韩、英、日文，为你解说N首尔塔的过去与现在。据说每天19:00-21:00每整点及每十分钟都是出现不同主题的霓虹灯。如果出现蓝色的&ldquo;Blue Sky&rdquo;说明今天是一个散步的好日子哦！</p>
+                    <p>
+                        梨花女子大学</p>
+                    <p style="text-indent: 2em;">
+                        欧式风格的典雅建筑，壮观的下沉式教室。周边的街道尽是各式潮流小店，还设有各种风味的餐厅、气质出众的咖啡厅等，本土化妆品的商店多到令人目不暇接，店面装修得还非常可爱。</p>
+                    <p>
+                        <img src="images/avatar/place-datail1.jpg"/>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer" style="margin-top: 50px">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <img src="images/logoT.png" class="footer-logo" alt="" />
+                        <p>
+                            天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国旅游最富活力的成长性新锐航空企业。
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h3 class="widget-title">天天旅游</h3>
+                            <ul>
+                                <li><a href="#">天天旅游</a></li>
+                                <li><a href="#">天天旅游</a></li>
+                                <li><a href="#">天天旅游</a></li>
+                                <li><a href="#">天天旅游</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="widget">
+                            <h3 class="widget-title">天天旅游</h3>
+                            <ul>
+                                <li><a href="#">天天旅游</a></li>
+                                <li><a href="#">天天旅游</a></li>
+                                <li><a href="#">天天旅游</a></li>
+                                <li><a href="#">天天旅游</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="widget">
+                            <h3 class="widget-title">订阅</h3>
+                            <p>
+                                输入您的邮箱地址
+                            </p>
+                            <form class="newsletter">
+                                <input type="email" name="EMAIL" placeholder="Your email address" required="" />
+                                <button><i class="fa fa-paper-plane"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        Copyright &copy; 2019.天软学院<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/footer_payment.png" alt="" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="backtotop" id="backtotop"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/modernizr-2.7.1.min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.min.js"></script>
+<script type='text/javascript' src='js/jquery.prettyPhoto.js'></script>
+<script type='text/javascript' src='js/jquery.prettyPhoto.init.min.js'></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script src="js/me/carts.js"></script>
+<script src="js/me/bootbox.min.js"></script>
+<script src="js/me/user.js"></script>
+<script src="js/me/touch.js"></script>
+</body>
+</html>

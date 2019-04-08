@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/jqzoom/jqzoom.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/modal1.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap-table/dist/bootstrap-table.min.css">
+    <script src="bootstrap-table/dist/bootstrap-table.min.js"></script>
+    <script src="bootstrap-table/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="js/me/calc.js"></script>
+
+    <script src="js/me/jquery.jqzoom.js"></script>
+    <!--<script src="js/me/echarts.min.js"></script>-->
+    <script src="js/echart/echarts-all.js"></script>
+    <!--<script src="js/echart/chart/pie.js"></script>&ndash;&gt;-->
+    <script src="js/me/count.js"></script>
+    <script src="js/me/carts.js"></script>
+    <script src="js/me/user.js"></script>
+    <script src="js/me/bootbox.min.js"></script>
+    <script src="js/me/touch.js"></script>
+    <!--<script src="js/me/echarts.min.js"></script>-->
+
+    <script>
+        $(function () {
+            $(".jqzoom").jqueryzoom({
+                xzoom:300,
+                yzoom:300,
+                position:"right",
+                offset:50
+            });
+        });
+        function realClock(){
+            var now=new Date();
+            var year=now.getFullYear();
+            var month=now.getMonth();
+            var date=now.getDate();
+            var day=now.getDay();
+            var hour=now.getHours();
+            var minute=now.getMinutes();
+            var second=now.getSeconds();
+            month=month+1;
+            var arr_week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六");
+            var week=arr_week[day];
+//        var time=year+"年"+month+"月"+date+"日 "+week+" "+hour+":"+minute+":"+second;
+            var timeCur=year + "-" + (month < 10 ? "0" + month : month) + "-"
+                + (date < 10 ? "0" + date : date) + "  "+week+"  "+ (hour < 10 ? "0" + hour: hour)
+                + ":" + (minute < 10 ? "0" + minute : minute) + ":" + (second < 10 ? "0" + second : second);
+
+            clock.innerHTML="当前时间："+timeCur;
+        }
+        window.onload=function(){
+            setInterval("realClock()",1000);
+        }
+    </script>
+
+
+
+</head>
+<body>
+<header style="">
+    <nav class="navbar navbar-inverse" style="height:52px;line-height: 52px;border-radius: unset">
+        <div class="container-fluid">
+
+            <div id="clock" style="margin-left: 80px;color:#99998E;float: left"></div>
+
+            <div style="float: right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">语言 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">中文</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">英文</a></li>
+                        </ul>
+                    </li>
+                    <li class="navbg1"><label id="localname"></label></li>
+                    <li class="navbg1"><a href="login.html" >登录</a></li>
+                    <li class="navbg1"><a href="regist.html" >注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<header style="">
+    <nav class="navbar navbar-default" style="top: -20px;border-radius: unset;width: 100%">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <img src="images/logoT.png"  style="margin-top: 5px;margin-left: 100px;height: 80px;width: 80px"/>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="float:right;padding-right:150px;margin-top: 20px">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="shop1.html">旅游商店</a></li>
+                    <li><a href="shop-list.html">旅游指南</a></li>
+                    <li> <a href="#"><span id="acar">我的订单</span></a></li>
+                    <li><a href="tour.html">旅游攻略</a></li>
+                    <li><a href="about-us.html">关于我们</a></li>
+                    <li><a href="#"><span id="person">个人中心</span></a></li>
+                    <!--<li><a href="#" class="lik"></a></li>-->
+                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"><span class="badge">
+                        <label id="num" style="z-index:99;color:white;font-size: 5px;margin-top: 5px"></label>
+                    </span></span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+</header>
+<div class="container-fluid" style="position:relative;top:-30px;text-align: center">
+    <img src="images/background/photo1.PNG" width="100%"/>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li class="active">旅游量统计</li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row" >
+        <div class="col-md-4" style="text-align: center">
+            <div id="main" style="height: 400px;text-align: center"></div>
+        </div>
+        <div class="col-md-5" style="text-align: center">
+            <div id="main1" style="height: 400px;;text-align: center"></div>
+        </div>
+        <div class="col-md-3" style="text-align: center">
+            <div id="main2" style="height: 400px;;text-align: center"></div>
+        </div>
+    </div>
+    <div class="row col-md-12">
+        <p style="text-indent: 2em;font-size: 18px">说起云南，我已经去过很多次了，有自由行，当地临时一日游，但是今年刚刚从云南回来，这种管家式服务才是最满意的。我这次玩了6天，一价全含1680元/人，当时找的小琪旅游管家安排的，他全程帮你安排好酒店，门票，路线规划，坐车，吃饭，机场接送，甚至是机票，高铁票，都可以搞定，什么都不用管，玩就行了，享受了一次管家式服务。云南景点分散，有很多旅游景点，自驾游的话，路上太堵了，而且非常不安全，到了之后酒店门票全买不到。时间都花在路上，心情也糟透了。所以最后还是选择小琪的管家式服务，小琪也是朋友推荐给我的，只要将自己的计划告诉她，对方帮忙规划一个行程，敲定，转个400块的定金就完事了！ 住的很舒服，门票，用车，还有向导全都不用自己操心,玩的还很开心，小琪他是云南本地人，对当地特别熟悉，人脉很广资源充足,很多都是他的独家资源哦，还有告诫大家不要报低价的购物团，强制购物，一天购物耽误的时间比看风景多。也不建议自由行，很容易被宰，票也难预订。</p>
+        <p style="text-indent: 2em;font-size: 18px">1.不要跟机场、车站出口处的拉客仔或拉客大妈去她们推荐的酒店，那可是一条被宰的不归路啊~</p>
+        <p style="text-indent: 2em;font-size: 18px">2.云南酒店淡旺季差别很大，不要因为淡季来过很便宜就以为全年都是这样的价格哦</p>
+        <p style="text-indent: 2em;font-size: 18px">3.酒店都需要预定，否则有可能因为后面的客人的预定而不能让你续住，所以旅游之前最好预定好房间.特别是晚上临时找住处会很被动，之前有朋友飞机落地没酒店就很惨，不过我上次全程住宿交通都是小琪安排的，没有这个烦恼，嘻嘻~</p>
+        <p style="text-indent: 2em;font-size: 18px">小编联系的旅游管家对散客的关注度比较高，住宿啥的都提前安排好了，而且住房条件相当不错哦！ 酒店图片分享一下嘻嘻，还能看到美美的海景，赞！</p>
+    </div>
+</div>
+
+</div>
+<footer>
+    <div class="container-fluid" style="background: #444444;width: 100%">
+        <div class="row col-md-12" >
+            <div class="col-md-5">
+                <div class="fasd">
+                    <img src="images/logoT.jpg" height="91" width="92"/>
+                </div>
+                <div class="fasd1">
+                    <p>天天旅游以“敢为天下先”的创新魄力、斗志昂扬的创业激情、远见卓识的历史使命感和社会责任感励精图治、创新发展，成为中国旅游最富活力的成长性新锐航空企业。</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="tt">天天旅游</h3>
+                    <ul  >
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                        <li class="tt1"><a href="#">天天旅游</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h3 class="tt">订阅</h3>
+                <ul  class="tt1">
+                    <li class="tt1"><a href="#">请输入您的电子邮箱</a></li>
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="" aria-describedby="">
+                        <span class="input-group-addon" style="background: #7ECA8F">
+                            <span class="glyphicon glyphicon-send"></span>
+                        </span>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lx.dao.ProductDao">
+
+    <select id="getSelectResult" resultMap="getSelect">
+        select b.* from ( select a.*, rownum as num
+        from(
+        select pr.*,p.*from product pr,protype p where pr.typeid=p.tid
+
+        ) a
+        where rownum &lt;= #{page}*#{size}
+        <if test="null!=nameKey">
+            <bind name="nameLike" value="'%'+nameKey+'%'"/>
+            and a.pname like #{nameLike}
+        </if>
+        <if test="-1!=typeid">
+            and a.typeid=#{typeid}
+        </if>
+
+        ) b
+        where num > (#{page}-1)*#{size}
+    </select>
+    <resultMap type="Product" id="getSelect">
+        <id column="id" property="id"/>
+        <result column="pname" property="pname"/>
+        <result column="typeid" property="typeid"/>
+        <result column="price" property="price"/>
+
+        <result column="oprice" property="oprice"/>
+        <result column="sale" property="sale"/>
+        <result column="pnum" property="pnum"/>
+
+        <result column="url" property="url"/>
+        <result column="jqzurl" property="jqzurl"/>
+        <association property="proType" javaType="ProType">
+            <id column="tid" property="tid"/>
+            <result column="type" property="type"/>
+
+        </association>
+    </resultMap>
+
+    <select id="getProductCount" resultType="Integer">
+        select count(*) from product,protype
+        <where>
+            product.typeid=protype.tid
+            <if test="null!=nameKey">
+                <bind name="nameLike" value="'%'+nameKey+'%'"></bind>
+                and pname like #{nameLike}
+            </if>
+            <if test="-1!=typeid">
+                and typeid=#{typeid}
+            </if>
+        </where>
+    </select>
+
+
+    <select id="getProductOne" resultMap="getSelect1">
+         select pr.*,p.*from product pr,protype p where pr.typeid=p.tid and id=#{id}
+    </select>
+    <resultMap type="Product" id="getSelect1">
+        <id column="id" property="id"/>
+        <result column="pname" property="pname"/>
+        <result column="typeid" property="typeid"/>
+        <result column="price" property="price"/>
+
+        <result column="oprice" property="oprice"/>
+        <result column="sale" property="sale"/>
+        <result column="pnum" property="pnum"/>
+
+        <result column="url" property="url"/>
+        <result column="jqzurl" property="jqzurl"/>
+        <association property="proType" javaType="ProType">
+            <id column="tid" property="tid"/>
+            <result column="type" property="type"/>
+
+        </association>
+    </resultMap>
+</mapper>
